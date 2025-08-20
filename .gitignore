@@ -100,7 +100,8 @@ StyleCopReport.xml
 
 # Chutzpah Test files
 _Chutzpah*
-
+Student_Managment/appsettings.json
+Student_Managment/appsettings.Development.json
 # Visual C++ cache files
 ipch/
 *.aps
