@@ -26,7 +26,6 @@ namespace Student_Managment.Models
         [StringLength(50, ErrorMessage = "Department cannot be longer than 50 characters.")]
         public string Department { get; set; } = string.Empty;
 
-        [Range(2000, 2025, ErrorMessage = "Year must be between 2000 and 2025.")]
         public int Year { get; set; }
 
         [DataType(DataType.Date)]

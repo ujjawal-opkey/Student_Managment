@@ -17,7 +17,7 @@ namespace Student_Management.Controllers
             _dataAccess = dataAccess;
         }
 
-        // GET: api/students?name=... student with filters 
+        // GET: api/students?name=... student with filters of name roll or email
         [HttpGet]
         public ActionResult<IEnumerable<Student>> GetStudents(
             [FromQuery] string? name,
@@ -29,9 +29,9 @@ namespace Student_Management.Controllers
                 var students = _dataAccess.GetStudents(name, email, rollNumber);
                 return Ok(students);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, $"Internal server error: {e.Message}");
             }
         }
 
@@ -48,9 +48,9 @@ namespace Student_Management.Controllers
                 }
                 return Ok(student);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, $"Internal server error: {e.Message}");
             }
         }
 
@@ -69,9 +69,9 @@ namespace Student_Management.Controllers
                 _dataAccess.CreateStudent(student);
                 return CreatedAtAction(nameof(GetStudentById), new { id = student.Id }, student);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, $"Internal server error: {e.Message}");
             }
         }
 
@@ -95,9 +95,9 @@ namespace Student_Management.Controllers
                 _dataAccess.UpdateStudent(student);
                 return NoContent();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, $"Internal server error: {e.Message}");
             }
         }
 
@@ -116,9 +116,9 @@ namespace Student_Management.Controllers
                 _dataAccess.DeleteStudent(id);
                 return NoContent();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, $"Internal server error: {e.Message}");
             }
         }
     }
