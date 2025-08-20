@@ -2,8 +2,6 @@ using Student_Management.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 // Register your DataAccess class as a scoped service
 builder.Services.AddScoped<DataAccess>();
 
